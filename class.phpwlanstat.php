@@ -1,4 +1,13 @@
 <?php
+/*
+ *      class.phpwlanstat.php
+ *      part of PHPWLANstat
+ *
+ *      Author: Raphael Michel <webmaster@raphaelmichel.de>
+ *      Copyright: 2009 geek's factory
+ *      License: MIT-Lizenz
+ */
+
 class PHPWLANstat {
 	private $db;
 	private $new = 0;
@@ -77,44 +86,3 @@ class PHPWLANstat {
 		}
 	}
 }
-/*
- string(2040) "eth2      Scan completed :
-          Cell 01 - Address: 00:04:0E:D7:F0:4E
-                    ESSID:"Lummerland"
-                    Mode:Managed
-                    Frequency:2.412 GHz (Channel 1)
-                    Quality:1/5  Signal level:-86 dBm  Noise level:-92 dBm
-                    IE: IEEE 802.11i/WPA2 Version 1
-                        Group Cipher : TKIP
-                        Pairwise Ciphers (1) : CCMP
-                        Authentication Suites (1) : PSK
-                    IE: WPA Version 1
-                        Group Cipher : TKIP
-                        Pairwise Ciphers (1) : TKIP
-                        Authentication Suites (1) : PSK
-                    Encryption key:on
-                    Bit Rates:1 Mb/s; 2 Mb/s; 5.5 Mb/s; 11 Mb/s; 6 Mb/s
-                              9 Mb/s; 12 Mb/s; 18 Mb/s; 24 Mb/s; 36 Mb/s
-                              48 Mb/s; 54 Mb/s
-          Cell 02 - Address: 00:1B:11:8A:A5:7C
-                    ESSID:"Default"
-                    Mode:Managed
-                    Frequency:2.437 GHz (Channel 6)
-                    Quality:1/5  Signal level:-85 dBm  Noise level:-92 dBm
-                    Encryption key:on
-                    Bit Rates:1 Mb/s; 2 Mb/s; 5.5 Mb/s; 11 Mb/s; 6 Mb/s
-                              9 Mb/s; 12 Mb/s; 18 Mb/s; 24 Mb/s; 36 Mb/s
-                              48 Mb/s; 54 Mb/s
-          Cell 03 - Address: 00:13:49:D7:6F:2C
-                    ESSID:"DSLWLANModem200"
-                    Mode:Managed
-                    Frequency:2.437 GHz (Channel 6)
-                    Quality:1/5  Signal level:-89 dBm  Noise level:-92 dBm
-                    IE: WPA Version 1
-                        Group Cipher : TKIP
-                        Pairwise Ciphers (1) : TKIP
-                        Authentication Suites (1) : PSK
-                    Encryption key:on
-                    Bit Rates:1 Mb/s; 2 Mb/s; 5.5 Mb/s; 11 Mb/s; 6 Mb/s
-                              9 Mb/s; 12 Mb/s; 18 Mb/s; 24 Mb/s; 36 Mb/s
-                              48 Mb/s; 54 Mb/s"*/

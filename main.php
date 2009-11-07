@@ -50,7 +50,7 @@ if(!file_exists(PWS_DATABASE))
 
 // Include Files
 require('class.phpwlanstat.php');
-
+echo "This program comes with ABSOLUTELY NO WARRANTY! You use it AT YOUR OWN RISK!\n";
 echo "All right! Starting PHPWLANstat engine now...\n";
 
 $pws = new PHPWLANstat;
