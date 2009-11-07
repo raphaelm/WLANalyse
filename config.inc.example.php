@@ -12,7 +12,6 @@ define('PWS_INTERFACE', ''); // Das Interface, das genutzt werden
                              // aus und schaue, bei welchem Interface
                              // etwas wie "IEEE 802.11" dabeisteht ;-)
 
-define('PWS_DATABASE', 'database.sqlite'); // Die zu nutzende Datenbank-
-										   // Datei. Eine leere namens
-										   // "database.sqlite" liegt
-										   // bei.
+define('PWS_DATABASE', 'database.db'); // Die zu nutzende Datenbank-
+									// Datei. Eine leere namens
+									// "database.db" liegt bei.
