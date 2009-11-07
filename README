@@ -1,0 +1,39 @@
+Hello! I'm sorry, but this software is available
+in German only yet. Maybe I will translate it
+into English if it's working.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+PHPWLANstat
+++++++++++++++++++++++++++++++++++++++++++++++++++
+PHPWLANstat ist ein PHP-Programm das auf der 
+Konsole im Hintergrund regelmäßig nach WLAN-Netzen
+in der Umgebung sucht und diese in eine SQLite-
+Datenbank schreibt. So entsteht auf Dauer
+vielleicht eine brauchbare Datenbank um eine 
+brauchbare Statistik vorzulegen, in welchem Ort
+etc. wieviel Prozent der Netze ungeschützt sind.
+Da die MAC-Adressen (teilweise) gespeichert werden,
+müssten sich auch Statistiken nach Herrsteller
+erstellen lassen.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+ANFORDERUNGEN
+++++++++++++++++++++++++++++++++++++++++++++++++++
+- Der Shell-Befehl "iwlist" muss verfügbar sein
+- WLAN
+- PHP5 (Ubuntu-Pakete, minimal: php5-cli,
+    php5-sqlite)
+- Root-Rechte/sudo (braucht iwlist leider!)
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+NUTZUNG
+++++++++++++++++++++++++++++++++++++++++++++++++++
+$ php main.php
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+COPYRIGHT & LIZENZ
+++++++++++++++++++++++++++++++++++++++++++++++++++
+Projektleitung: Raphael Michel
+ 		<raphael@geeksfactory.de>
+Lizenz: MIT-Lizenz
