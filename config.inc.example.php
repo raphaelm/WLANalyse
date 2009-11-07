@@ -7,11 +7,14 @@
  *      Copyright: 2009 geek's factory
  *      License: MIT-Lizenz
  */
-define('PWS_INTERFACE', ''); // Das Interface, das genutzt werden
-                             // soll. Zum Herausfinden führe "iwconfig"
-                             // aus und schaue, bei welchem Interface
-                             // etwas wie "IEEE 802.11" dabeisteht ;-)
+define('PWS_INTERFACE', ''); // The interface which should be used.
+                             // Use the command "iwconfig" to list
+                             // all possible interfaces.
 
-define('PWS_DATABASE', 'database.db'); // Die zu nutzende Datenbank-
-									// Datei. Eine leere namens
-									// "database.db" liegt bei.
+define('PWS_DATABASE', 'database.db'); // The database file which should
+                                       // be used to store data. There
+                                       // is an empty one, named
+                                       // "database.db"
+
+define('PWS_SCANFREQ', 5); // Length of the break between two scans
+                           // (in seconds)

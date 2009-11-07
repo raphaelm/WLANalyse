@@ -1,46 +1,44 @@
-Hello! I'm sorry, but this software is available
-in German only yet. Maybe I will translate it
-into English if it's working.
+	[Eine deutsche Version kann unter README.de
+	 gefunden werden]
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 PHPWLANstat
 ++++++++++++++++++++++++++++++++++++++++++++++++++
-PHPWLANstat ist ein PHP-Programm das auf der 
-Konsole im Hintergrund regelmäßig nach WLAN-Netzen
-in der Umgebung sucht und diese in eine SQLite-
-Datenbank schreibt. So entsteht auf Dauer
-vielleicht eine brauchbare Datenbank um eine 
-brauchbare Statistik vorzulegen, in welchem Ort
-etc. wieviel Prozent der Netze ungeschützt sind.
-Da die MAC-Adressen (teilweise) gespeichert werden,
-müssten sich auch Statistiken nach Herrsteller
-erstellen lassen.
+PHPWLANstat is a software which is looking for
+WLAN accesspoints in the background. It writes
+all founded accesspoints in a SQLite database
+file specified in config.inc.php. The sense of
+this program: After using it long time you can
+generate statistics about protected and
+unprotected accesspoints in your city. Maybe
+I will write a tool for graphical statistics later
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++
-ANFORDERUNGEN
+REQUIREMENTS
 ++++++++++++++++++++++++++++++++++++++++++++++++++
-- Der Shell-Befehl "iwlist" muss verfügbar sein
+- Linux/Unix
+- The command "iwlist"
 - WLAN
-- PHP5 (Ubuntu-Pakete, minimal: php5-cli,
+- PHP5 (minimal ubuntu-packages: php5-cli,
     php5-sqlite)
-- Root-Rechte/sudo (braucht iwlist leider!)
+- You need to be root.
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 INSTALLATION
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 $ mv config.inc.example.php config.inc.php
-# Anpassen der Konfigurationsdatei:
+# Customize the configuration file
 $ vim config.inc.php
-# Fertig!
+# Done!
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++
-NUTZUNG
+USAGE
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 $ php main.php
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++
-COPYRIGHT & LIZENZ
+COPYRIGHT & LICENSE
 ++++++++++++++++++++++++++++++++++++++++++++++++++
-Projektleitung: Raphael Michel
- 		<raphael@geeksfactory.de>
-Lizenz: MIT-Lizenz
+Project leader: Raphael Michel
+                <raphael@geeksfactory.de>
+License: MIT-Lizenz
