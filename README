@@ -26,10 +26,17 @@ ANFORDERUNGEN
 - Root-Rechte/sudo (braucht iwlist leider!)
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++
+INSTALLATION
+++++++++++++++++++++++++++++++++++++++++++++++++++
+$ mv config.inc.example.php config.inc.php
+# Anpassen der Konfigurationsdatei:
+$ vim config.inc.php
+# Fertig!
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
 NUTZUNG
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 $ php main.php
-
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 COPYRIGHT & LIZENZ
