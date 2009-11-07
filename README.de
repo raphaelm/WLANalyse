@@ -35,6 +35,8 @@ $ vim config.inc.php
 NUTZUNG
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 $ php main.php
+Statistiken (werden nach stats/ gespeichert):
+$ php statistics.php
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 COPYRIGHT & LIZENZ
