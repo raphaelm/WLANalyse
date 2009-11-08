@@ -2,16 +2,17 @@
 	 gefunden werden]
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++
-PHPWLANstat
+WLANalyse
 ++++++++++++++++++++++++++++++++++++++++++++++++++
-PHPWLANstat is a software which is looking for
+WLANalyse is a software which is looking for
 WLAN accesspoints in the background. It writes
 all founded accesspoints in a SQLite database
 file specified in config.inc.php. The sense of
 this program: After using it long time you can
 generate statistics about protected and
-unprotected accesspoints in your city. Maybe
-I will write a tool for graphical statistics later
+unprotected accesspoints in your city.
+PHPWLANstat is able to generate nice and graphical
+HTML statistics with all the collected data.
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 REQUIREMENTS
@@ -26,16 +27,21 @@ REQUIREMENTS
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 INSTALLATION
 ++++++++++++++++++++++++++++++++++++++++++++++++++
+$ ./install.sh
 $ mv config.inc.example.php config.inc.php
-# Customize the configuration file
+
+Customize the configuration file:
 $ vim config.inc.php
-# Done!
+
+Done!
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 USAGE
 ++++++++++++++++++++++++++++++++++++++++++++++++++
+Scanning:
 $ php main.php
-Generate stats (saved in stats/):
+
+Generate statistic report (saved in stats/):
 $ php statistics.php
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++

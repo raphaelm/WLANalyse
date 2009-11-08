@@ -1,9 +1,9 @@
 	[There is an English version, named README]
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++
-PHPWLANstat
+WLANalyse
 ++++++++++++++++++++++++++++++++++++++++++++++++++
-PHPWLANstat ist ein PHP-Programm das auf der
+WLANalyse ist ein PHP-Programm das auf der
 Konsole im Hintergrund regelmäßig nach WLAN-Netzen
 in der Umgebung sucht und diese in eine SQLite-
 Datenbank schreibt. So entsteht auf Dauer
@@ -13,6 +13,8 @@ etc. wieviel Prozent der Netze ungeschützt sind.
 Da die MAC-Adressen (teilweise) gespeichert werden,
 müssten sich auch Statistiken nach Herrsteller
 erstellen lassen.
+WLANalyse erstellt graphische Statistiken im
+HTML-Format mit allen gesammelten Daten.
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 ANFORDERUNGEN
@@ -26,16 +28,21 @@ ANFORDERUNGEN
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 INSTALLATION
 ++++++++++++++++++++++++++++++++++++++++++++++++++
+$ ./install.sh
 $ mv config.inc.example.php config.inc.php
-# Anpassen der Konfigurationsdatei:
+
+Anpassen der Konfigurationsdatei:
 $ vim config.inc.php
-# Fertig!
+
+Fertig!
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 NUTZUNG
 ++++++++++++++++++++++++++++++++++++++++++++++++++
+Scannen:
 $ php main.php
-Statistiken (werden nach stats/ gespeichert):
+
+Statistik-Bericht (wird nach stats/ gespeichert):
 $ php statistics.php
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++

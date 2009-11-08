@@ -1,7 +1,7 @@
 <?php
 /*
  *      main.php
- *      part of PHPWLANstat
+ *      part of WLANalyse
  *
  *      Author: Raphael Michel <webmaster@raphaelmichel.de>
  *      Copyright: 2009 geek's factory
