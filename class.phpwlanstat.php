@@ -79,7 +79,7 @@ class PHPWLANstat {
 					$new++;
 				}
 			}
-			echo "$new new accessports and $known known detected.\n";
+			echo "$new new accesspoints and $known known detected.\n";
 		}else{
 			echo "Scan failed! More details in error.log\n";
 			file_put_contents('error.log', $out, FILE_APPEND);
