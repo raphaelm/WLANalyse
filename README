@@ -11,7 +11,7 @@ file specified in config.inc.php. The sense of
 this program: After using it long time you can
 generate statistics about protected and
 unprotected accesspoints in your city.
-PHPWLANstat is able to generate nice and graphical
+WLANalyse is able to generate nice and graphical
 HTML statistics with all the collected data.
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++
