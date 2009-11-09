@@ -49,7 +49,7 @@ class PHPWLANstat {
 			foreach($array as $part){
 				preg_match('#Address: ([a-z0-9:]+)#i', $part, $treffer);
 				if(!isset($treffer[1])) continue;
-				$MAC = $treffer[1];
+				$MAC = substr($treffer[1],0,17);
 
 				preg_match('#ESSID:"(.*)"#i', $part, $treffer);
 				$ESSID = $treffer[1];
