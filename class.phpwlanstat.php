@@ -14,7 +14,10 @@ class PHPWLANstat {
 
 	public function PHPWLANstat(){
 		// Initialize Database
-		$this->db = new SQLiteDatabase(PWS_DATABASE);
+		if(file_exists(PWS_DATABASE))
+			$this->db = new SQLiteDatabase(PWS_DATABASE);
+		else
+			$this->db = new SQLiteDatabase(dirname(__FILE__).'/'.PWS_DATABASE);
 
 		// Enter loop
 		$this->mainloop();

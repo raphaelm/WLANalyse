@@ -8,10 +8,13 @@
  *      License: MIT-Lizenz
  */
 
-if(!file_exists('config.inc.php'))
+if(file_exists('config.inc.php'))
+	include('config.inc.php');
+if(file_exists(dirname(__FILE__).'/config.inc.php'))
+	include(dirname(__FILE__).'/config.inc.php');
+else
 	die('File config.inc.php not found!');
 
-include('config.inc.php');
 
 // Check for compatibility
 
@@ -45,7 +48,8 @@ if(!file_exists('/bin/iwlist')
    and !file_exists('~/bin/iwlist'))
 	die("The command 'iwlist' was not found!\n");
 
-if(!file_exists(PWS_DATABASE))
+
+if(!file_exists(PWS_DATABASE) && !file_exists(dirname(__FILE__).'/'.PWS_DATABASE))
 	die("The database file was not found!\n");
 
 // Include Files
