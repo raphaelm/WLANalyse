@@ -180,7 +180,6 @@ class Wlanalysegui:
 		self.notebook.append_page_menu(tab1_c,tab1_l,None)
 		self.notebook.append_page_menu(tab2_c,tab2_l,None)
 		self.notebook.append_page_menu(tab3_c,tab3_l,None)
-		self.notebook.append_page_menu(tab4_c,tab4_l,None)
 		self.notebook.popup_enable()
 		self.notebook.show()
 		
