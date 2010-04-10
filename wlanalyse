@@ -1,0 +1,207 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+#
+#       wlanalyse
+#       
+#       Copyright 2010 Raphael Michel <webmaster@raphaelmichel.de>
+#       
+#       This program is free software; you can redistribute it and/or modify
+#       it under the terms of the GNU General Public License as published by
+#       the Free Software Foundation; either version 2 of the License, or
+#       (at your option) any later version.
+#       
+#       This program is distributed in the hope that it will be useful,
+#       but WITHOUT ANY WARRANTY; without even the implied warranty of
+#       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#       GNU General Public License for more details.
+#       
+#       You should have received a copy of the GNU General Public License
+#       along with this program; if not, write to the Free Software
+#       Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+#       MA 02110-1301, USA.
+
+import sys, wlanalyse
+try:
+	import gtk
+except:
+	print "Missing module python-gtk (v2)"
+	sys.exit(1)
+
+class Wlanalysegui:
+		
+	def draw_gui(self):
+		self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
+		self.window.set_title('WLANalyse')
+		self.window.set_size_request(600,400)
+		self.window.connect("destroy", gtk.main_quit)
+		self.window.set_icon_from_file(wlanalyse.settings['icon'])
+		
+		mainvbox = gtk.VBox()
+		
+		self.notebook = gtk.Notebook()
+		
+		tab1_l = gtk.Label('Scan')
+		tab1_l.show()
+		tab2_l = gtk.Label('Statistics')
+		tab2_l.show()
+		tab3_l = gtk.Label('Export')
+		tab3_l.show()
+		
+		tab1_c = gtk.VBox()
+		self.runbtn = gtk.Button('_Run!', None, True)
+		self.runbtn.show()
+		tab1_c.pack_start(self.runbtn, expand=False, fill=False)
+		self.waitprog = gtk.ProgressBar()
+		self.waitprog.show()
+		self.waitprog.set_fraction(0.0)
+		tab1_c.pack_start(self.waitprog, expand=False, fill=False)
+		self.scanlog = gtk.TreeView()
+		colcell1 = gtk.CellRendererText()
+		column1 = gtk.TreeViewColumn('Log')
+		column1.pack_start(colcell1)
+		column1.add_attribute(colcell1, 'text', 0)
+		column1.set_resizable(True)
+		self.scanlogmodel = gtk.ListStore(str)
+		self.scanlog.append_column(column1)
+		self.scanlog.set_model(self.scanlogmodel)
+		self.scanlog.show()
+		scr = gtk.ScrolledWindow(None)
+		scr.add(self.scanlog)
+		scr.set_policy(gtk.POLICY_AUTOMATIC,gtk.POLICY_AUTOMATIC)
+		scr.show()
+		tab1_c.pack_start(scr)
+		tab1_c.show()
+		
+		tab2_c = gtk.VBox()
+		self.runbtn = gtk.Button('_Generate!', None, True)
+		self.runbtn.show()
+		tab2_c.pack_start(self.runbtn, expand=False, fill=False)
+		self.waitprog = gtk.ProgressBar()
+		self.waitprog.show()
+		self.waitprog.set_fraction(0.0)
+		tab2_c.pack_start(self.waitprog, expand=False, fill=False)
+		
+		statnotebook = gtk.Notebook()
+		stat_tab1_l = gtk.Label('Encryption')
+		stat_tab1_l.show()
+		stat_tab2_l = gtk.Label('Enc. method')
+		stat_tab2_l.show()
+		stat_tab3_l = gtk.Label('frequent MAC ranges')
+		stat_tab3_l.show()
+		stat_tab4_l = gtk.Label('frequent manufacturers')
+		stat_tab4_l.show()
+		
+		self.stat_ranges_tv = gtk.TreeView()
+		colcell1 = gtk.CellRendererText()
+		column1 = gtk.TreeViewColumn('MAC range')
+		column1.pack_start(colcell1)
+		column1.add_attribute(colcell1, 'text', 0)
+		column1.set_resizable(True)
+		colcell2 = gtk.CellRendererText()
+		column2 = gtk.TreeViewColumn('Quantity')
+		column2.pack_start(colcell2)
+		column2.add_attribute(colcell2, 'text', 1)
+		column2.set_resizable(True)
+		self.stat_ranges_model = gtk.ListStore(str, str)
+		self.stat_ranges_tv.append_column(column1)
+		self.stat_ranges_tv.append_column(column2)
+		self.stat_ranges_tv.set_model(self.stat_ranges_model)
+		self.stat_ranges_tv.show()
+		stat_tab3_c = gtk.ScrolledWindow(None)
+		stat_tab3_c.add(self.stat_ranges_tv)
+		stat_tab3_c.set_policy(gtk.POLICY_AUTOMATIC,gtk.POLICY_AUTOMATIC)
+		stat_tab3_c.show()
+		
+		self.stat_man_tv = gtk.TreeView()
+		colcell1 = gtk.CellRendererText()
+		column1 = gtk.TreeViewColumn('Manufacturer')
+		column1.pack_start(colcell1)
+		column1.add_attribute(colcell1, 'text', 0)
+		column1.set_resizable(True)
+		colcell2 = gtk.CellRendererText()
+		column2 = gtk.TreeViewColumn('Quantity')
+		column2.pack_start(colcell2)
+		column2.add_attribute(colcell2, 'text', 1)
+		column2.set_resizable(True)
+		self.stat_man_model = gtk.ListStore(str, str)
+		self.stat_man_tv.append_column(column1)
+		self.stat_man_tv.append_column(column2)
+		self.stat_man_tv.set_model(self.stat_man_model)
+		self.stat_man_tv.show()
+		stat_tab4_c = gtk.ScrolledWindow(None)
+		stat_tab4_c.add(self.stat_man_tv)
+		stat_tab4_c.set_policy(gtk.POLICY_AUTOMATIC,gtk.POLICY_AUTOMATIC)
+		stat_tab4_c.show()
+		
+		self.stat_enc_img = gtk.Image()
+		self.stat_enc_img.show()
+		self.stat_encm_img = gtk.Image()
+		self.stat_encm_img.show()
+		statnotebook.append_page_menu(self.stat_enc_img, stat_tab1_l, None)
+		statnotebook.append_page_menu(self.stat_encm_img, stat_tab2_l, None)
+		statnotebook.append_page_menu(stat_tab3_c, stat_tab3_l, None)
+		statnotebook.append_page_menu(stat_tab4_c, stat_tab4_l, None)
+		statnotebook.show()
+		
+		tab2_c.pack_start(statnotebook)
+		tab2_c.show()
+		
+		tab3_c = gtk.VBox()
+		tab3_hb_1 = gtk.HBox()
+		self.exportdatabtn = gtk.Button('Export data')
+		self.exportdatabtn.set_size_request(150,29)
+		self.exportdatabtn.show()
+		self.exportdatacb =gtk.combo_box_new_text()
+		self.exportdatacb.append_text('SQL dump')
+		self.exportdatacb.append_text('XML')
+		self.exportdatacb.append_text('CSV')
+		self.exportdatacb.set_size_request(250,29)
+		self.exportdatacb.show()
+		tab3_hb_1.pack_start(self.exportdatacb, expand=False, fill=False)
+		tab3_hb_1.pack_start(self.exportdatabtn, expand=False, fill=False)
+		tab3_hb_1.show()
+		tab3_hb_2 = gtk.HBox()
+		self.exportstatbtn = gtk.Button('Export statistics')
+		self.exportstatbtn.set_size_request(150,29)
+		self.exportstatbtn.show()
+		self.exportstatcb = gtk.combo_box_new_text()
+		self.exportstatcb.append_text('HTML (plain)')
+		self.exportstatcb.append_text('HTML (with graphics)')
+		self.exportstatcb.append_text('CSV')
+		self.exportstatcb.set_size_request(250,29)
+		self.exportstatcb.show()
+		tab3_hb_2.pack_start(self.exportstatcb, expand=False, fill=False)
+		tab3_hb_2.pack_start(self.exportstatbtn, expand=False, fill=False)
+		tab3_hb_2.show()
+		tab3_c.pack_start(tab3_hb_1, expand=False, fill=False)
+		tab3_c.pack_start(tab3_hb_2, expand=False, fill=False)
+		tab3_c.show()
+		
+		self.notebook.append_page_menu(tab1_c,tab1_l,None)
+		self.notebook.append_page_menu(tab2_c,tab2_l,None)
+		self.notebook.append_page_menu(tab3_c,tab3_l,None)
+		self.notebook.append_page_menu(tab4_c,tab4_l,None)
+		self.notebook.popup_enable()
+		self.notebook.show()
+		
+		self.statusbar = gtk.Statusbar()
+		self.statusbar.show()
+		
+		mainvbox.pack_start(self.notebook)
+		mainvbox.pack_start(self.statusbar, expand=False, fill=False)
+		mainvbox.show()
+		self.window.add(mainvbox)
+		self.window.show()
+		
+	def __init__(self):
+		# Draw GUI
+		self.draw_gui()
+		self.statusbar.push(1, 'WLANalyse loaded')
+		self.stat_ranges_model.append(['test', '1'])
+		
+def main():
+	Wlanalysegui()
+	gtk.main()
+	
+if __name__ == '__main__':
+	main()
